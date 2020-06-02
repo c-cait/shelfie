@@ -12,6 +12,11 @@ function Header() {
                 Shelfie
             </div>
 
+            <div>
+                <button className='header-btn'>Dashboard</button>
+                <button className='header-btn'>Add Inventory</button>
+            </div>
+
         </div>
     )
 }

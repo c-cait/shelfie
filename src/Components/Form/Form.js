@@ -7,7 +7,7 @@ class Form extends Component{
         super();
         this.state = {
             name: '',
-            price: 0,
+            price: '',
             imgurl: ''
         }
     }
@@ -33,7 +33,7 @@ class Form extends Component{
     handleCancel(){
         this.setState({
             name: '',
-            price: 0,
+            price: '',
             imgurl: ''
         })
     }
@@ -42,25 +42,25 @@ class Form extends Component{
     render() {
         return(
             <div className='product-form-section'>
-                <form className='product-form'>
+                <div className='product-form'>
 
-                    <input className='form-input' type='text' placeholder='product name'
+                    <input className='form-input' type='text' value={this.state.name} placeholder='Product Name'
                     onChange={(e) => this.handleName(e.target.value)}></input>
 
-                    <input className='form-input' type='number' placeholder='price'
+                    <input className='form-input' type='number' value={this.state.price} placeholder='Price'
                     onChange={(e) => this.handlePrice(e.target.value)}></input>
 
-                    <input className='form-input' type='text' placeholder='product image'
+                    <input className='form-input' type='text' value={this.state.imgurl} placeholder='Image URL'
                     onChange={(e) => this.handleImgUrl(e.target.value)}></input>
                     
                     <div className='form-button-section'>
                         <button onClick={() => {this.handleCancel()}} className='cancel btn'>Cancel</button>
 
                         <button className='add btn'
-                            onClick={() => {this.props.createProduct(this.state.name, this.state.price, this.state.imgurl)}}
+                            onClick={() => {this.props.createProduct(this.state.name, this.state.price, this.state.imgurl); this.handleCancel()}}
                         >Add Inventory</button>
                     </div>
-                </form>
+                </div>
             </div>
         )
     }
